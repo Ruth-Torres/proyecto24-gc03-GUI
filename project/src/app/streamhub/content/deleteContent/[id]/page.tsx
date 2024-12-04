@@ -54,19 +54,6 @@ export default function ContentPage() {
 		console.error("Error al obtener el token.");
 	}
 
-	if (isTokenError) {
-		return (
-			<div className="error-page">
-				<h1>Error: Debes ser un gestor para acceder a esta página</h1>
-				<div>
-					<span>Por favor, accede a </span>
-					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
-					<span> para iniciar sesión.</span>
-				</div>
-			</div>
-		);
-	}
-
 	// useEffect para cargar el contenido cuando el componente se monta
 	useEffect(() => {
 		const fetchContent = async () => {
@@ -85,6 +72,19 @@ export default function ContentPage() {
 
 		fetchContent();
 	}, [apiUrl]);
+
+	if (isTokenError) {
+		return (
+			<div className="error-page">
+				<h1>Error: Debes ser un gestor para acceder a esta página</h1>
+				<div>
+					<span>Por favor, accede a </span>
+					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+					<span> para iniciar sesión.</span>
+				</div>
+			</div>
+		);
+	}
 
 	// Función para manejar la eliminación del contenido
 	const handleDelete = async () => {

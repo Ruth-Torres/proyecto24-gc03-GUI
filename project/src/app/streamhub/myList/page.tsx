@@ -57,7 +57,7 @@ const UserListPage = () => {
 				const apiUrlForIds = `http://localhost:8080/StreamHub/miLista/${userId}`;
 				const listResponse = await fetch(apiUrlForIds).then((res) => res.json());
 
-				if (!listResponse || !listResponse.contenidos) {
+				if (!listResponse?.contenidos) {
 					setError('Error fetching content list.');
 					return;
 				}
