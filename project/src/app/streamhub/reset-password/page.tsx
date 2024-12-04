@@ -31,7 +31,7 @@ const ResetPasswordPage = () => {
         }
 
         try {
-            const response = await resetPassword(token, newPassword);
+            await resetPassword(token, newPassword);
             setSuccessMessage('Contraseña restablecida con éxito.');
             setError('');
 
