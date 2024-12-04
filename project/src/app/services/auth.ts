@@ -30,7 +30,7 @@ export const login = async (email: string, password: string): Promise<string> =>
 
         return token;
     } catch (error: any) {
-        if (error.response && error.response.data) {
+        if (error.response?.data) {
             throw new Error(error.response.data.message || 'Error al autenticar.');
         }
         throw new Error('Error de conexión con el servidor.');
